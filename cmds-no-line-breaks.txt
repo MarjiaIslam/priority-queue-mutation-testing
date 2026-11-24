@@ -1,0 +1,30 @@
+From IN your _code_ directory (not from out here in the project directory): 
+
+[Compile you code using jdk : jave 24 or below]
+
+*************************
+WINDOWS
+*************************
+
+COMPILE:
+javac -cp .;../junit-4.11.jar *.java
+
+RUN PART 1:
+java -cp .;../junit-4.11.jar MyTestsPQ
+
+MUTATION:
+java -cp .;../junit-4.11.jar;../pitest.jar;../pitest-cmd.jar;../pitest-entry.jar org.pitest.mutationtest.commandline.MutationCoverageReport --reportDir output --targetClasses PriorityQueue,PriorityQueue$Itr --targetTests MyTestsPQ --sourceDirs . --timestampedReports=false --mutators DEFAULTS,REMOVE_CONDITIONALS,INLINE_CONSTS,CONSTRUCTOR_CALLS,NON_VOID_METHOD_CALLS,REMOVE_INCREMENTS
+
+
+*************************
+Linux/MaxOS
+*************************
+
+COMPILE:
+javac -cp .:../junit-4.11.jar *.java
+
+RUN PART 1:
+java -cp .:../junit-4.11.jar MyTestsPQ
+
+MUTATION:
+java -cp .:../junit-4.11.jar:../pitest.jar:../pitest-cmd.jar:../pitest-entry.jar org.pitest.mutationtest.commandline.MutationCoverageReport --reportDir output --targetClasses PriorityQueue,'PriorityQueue$Itr' --targetTests MyTestsPQ --sourceDirs . --timestampedReports=false --mutators DEFAULTS,REMOVE_CONDITIONALS,INLINE_CONSTS,CONSTRUCTOR_CALLS,NON_VOID_METHOD_CALLS,REMOVE_INCREMENTS
